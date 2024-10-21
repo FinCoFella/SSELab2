@@ -18,7 +18,7 @@ def submit():
 def query():
     q = request.args.get("q")
     response = process_query(q)
-    return response 
+    return response
 
 
 def process_query(string):
