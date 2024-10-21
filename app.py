@@ -16,7 +16,6 @@ def submit():
 
 def process_query(string):
     if string == "dinosaurs":
-            return "Dinosaurs ruled the Earth 200 million years ago"
+        return "Dinosaurs ruled the Earth 200 million years ago"
     else:
         return "Unknown"
-
