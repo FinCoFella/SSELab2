@@ -13,11 +13,13 @@ def submit():
     input_age = request.form.get("age")
     return render_template("hello.html", name=input_name, age=input_age)
 
+
 @app.route("/query", methods=["GET"])
 def query():
     q = request.args.get("q")
     response = process_query(q)
     return response 
+
 
 def process_query(string):
     if string == "dinosaurs":
