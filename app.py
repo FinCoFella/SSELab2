@@ -65,7 +65,8 @@ def get_repositories(username):
             })
         return repo_data
     else:
-        return [{"name": f"Failed to retrieve repositories: {response.status_code}",
+        return [{"name": f"Failed to retrieve repositories: \
+        {response.status_code}",
                  "updated_at": "",
                  "author": "",
                  "message": "",
