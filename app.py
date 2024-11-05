@@ -49,18 +49,26 @@ def get_repositories(username):
                     last_commit = commits[0]  # Get the latest commit
                     author = last_commit["commit"]["author"]["name"]
                     message = last_commit["commit"]["message"]
+                    commit_hash = last_commit["sha"]
+                    commit_date = last_commit["commit"]["author"]["date"]
                 else:
                     author = "No commits"
                     message = "No commits"
+                    commit_hash = ""
+                    commit_date = ""
             else:
                 author = "Error fetching commits"
                 message = "Error fetching commits"
+                commit_hash = ""
+                commit_date = ""
 
             repo_data.append({
                 "name": repo["full_name"],
                 "updated_at": repo["updated_at"],
                 "author": author,
                 "message": message,
+                "commit_hash": commit_hash,
+                "commit_date": commit_date,
                 "language": repo.get("language", "N/A")
             })
         return repo_data
@@ -70,6 +78,8 @@ def get_repositories(username):
                  "updated_at": "",
                  "author": "",
                  "message": "",
+                 "commit_hash": "",
+                 "commit_date": "",
                  "language": ""}]
 
 
