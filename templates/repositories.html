@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repositories</title>
+    <style>
+        body { background-color: lightblue; font-family: Arial, sans-serif; }
+        h1 { color: DarkSlateGrey; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Repositories</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Repository Name</th>
+                <th>Last Updated</th>
+		<th>Author</th>
+		<th>Commit Message</th>
+		<th>Language</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for repo in repos %}
+                <tr>
+                    <td>{{ repo.name }}</td>
+                    <td>{{ repo.updated_at }}</td>
+		    <td>{{ repo.author  }}</td>
+		    <td>{{ repo.message }}</td>
+		    <td>{{ repo.language }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <a href="/">Go back</a>
+</body>
+</html>
+
