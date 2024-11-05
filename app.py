@@ -3,13 +3,15 @@ import requests
 app = Flask(__name__)
 
 
-# HOME ROUTE - RENDERS AN HTML TEMPLATE WHERE USERS CAN INPUT THEIR GITHUB USERNAME
+# HOME ROUTE - RENDERS AN HTML TEMPLATE WHERE
+# USERS CAN INPUT THEIR GITHUB USERNAME
 @app.route("/")
 def username():
     return render_template("username.html")
 
 
-# SUBMIT FUNCTION - PROCESSES A FORM SUBMISSION WITH USER DETAILS RENDERING ANOTHER TEMPLATE TO DISPLAY THEM
+# SUBMIT FUNCTION - PROCESSES A FORM SUBMISSION WITH
+# USER DETAILS RENDERING ANOTHER TEMPLATE TO DISPLAY THEM
 @app.route("/submit", methods=["POST"])
 def submit():
     input_name = request.form.get("name")
@@ -17,7 +19,8 @@ def submit():
     return render_template("hello.html", name=input_name, age=input_age)
 
 
-# RETRIEVES THE GITHUB USERNAME FROM THE SUBMITTED FORM AND CALLS THE GET_REPOSITORIES FUNCTION TO FETCH THE USER'S REPOSITORIES
+# RETRIEVES THE GITHUB USERNAME FROM THE SUBMITTED FORM AND CALLS THE
+# GET_REPOSITORIES FUNCTION TO FETCH THE USER'S REPOSITORIES
 @app.route("/query", methods=["POST"])
 def query():
     github_username = request.form.get("github_username")
@@ -25,13 +28,14 @@ def query():
     return render_template("repositories.html", repos=response)
 
 
-# CONSTRUCTS THE API URL USING THE PROVIDED USERNAME / MAKES A GET REQUEST TO THE GITHUB API ENDPOINT TO RETRIEVE THE REPOSITORIES
+# CONSTRUCTS THE API URL USING THE PROVIDED USERNAME
+# MAKES A GET REQUEST TO THE GITHUB API ENDPOINT TO RETRIEVE THE REPOSITORIES
 def get_repositories(username):
     url = f"https://api.github.com/users/{username}/repos"
     response = requests.get(url)
 
     if response.status_code == 200:
-        repos = response.json()  # data returned is a list of 'repository' entitiesi
+        repos = response.json()
         repo_data = []
 
         for repo in repos:
