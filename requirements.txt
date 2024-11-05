@@ -1,7 +1,10 @@
 blinker==1.8.2
+certifi==2024.8.30
+charset-normalizer==3.4.0
 click==8.1.7
 flake8==7.1.1
 Flask==3.0.3
+idna==3.10
 iniconfig==2.0.0
 itsdangerous==2.2.0
 Jinja2==3.1.4
@@ -13,4 +16,5 @@ pycodestyle==2.12.1
 pyflakes==3.2.0
 pytest==8.3.3
 requests==2.32.3
+urllib3==2.2.3
 Werkzeug==3.0.4
